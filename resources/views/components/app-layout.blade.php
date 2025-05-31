@@ -1,9 +1,9 @@
-@props(['header'])
+<div>
+    <header>
+        {{ $header }}
+    </header>
 
-<x-layouts.app>
-    <x-slot name="header">
-        {{ $header ?? '' }}
-    </x-slot>
-
-    {{ $slot }}
-</x-layouts.app>
+    <main>
+        {{ $slot }}
+    </main>
+</div>
