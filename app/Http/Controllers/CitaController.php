@@ -32,8 +32,8 @@ class CitaController extends Controller
                     $q->where('nombre', 'like', "%$buscar%");
                 });
             })
-            ->orderBy('fecha', 'asc')
-            ->orderBy('hora', 'asc')
+            ->orderBy('fecha', 'desc')
+            ->orderBy('hora', 'desc')
             ->get();
 
         return view('citas.index', compact('citas'));
