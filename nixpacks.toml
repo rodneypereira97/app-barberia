@@ -5,7 +5,7 @@ nixPkgs = ["php81", "php81Packages.composer", "mysql"]
 cmds = ["composer install --no-dev --optimize-autoloader"]
 
 [phases.build]
-cmds = ["php artisan config:cache", "php artisan route:cache", "php artisan view:cache", "php artisan migrate"]
+cmds = ["php artisan config:cache", "php artisan route:cache", "php artisan view:cache", "php artisan migrate --force"]
 
 [start]
 cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
