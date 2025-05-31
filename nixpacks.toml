@@ -1,0 +1,33 @@
+[phases.setup]
+nixPkgs = [
+  "php81",
+  "composer",
+  "nodejs",
+  "mysql",
+  "php81Extensions.pdo",
+  "php81Extensions.pdo_mysql",
+  "php81Extensions.fileinfo"
+]
+
+[phases.install]
+cmds = [
+  "composer install --no-dev --optimize-autoloader",
+  "npm install --production"
+]
+
+[phases.build]
+cmds = [
+  "php artisan optimize",
+  "php artisan config:cache",
+  "php artisan route:cache",
+  "php artisan view:cache",
+  "php artisan storage:link || true"
+]
+
+[phases.deploy]
+cmds = [
+  "php artisan migrate --force"
+]
+
+[start]
+cmd = "php artisan serve --host=0.0.0.0 --port=$PORT"
