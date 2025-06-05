@@ -27,18 +27,24 @@
         margin-top: 0 !important;
     }
     </style>
-
+    
 
 
     @stack('styles')
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
 <div class="wrapper">
 
     <!-- Navbar -->
     @auth
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button">
+                    <i class="fas fa-bars"></i>
+                </a>
+            </li>
+        </ul>
             <li class="nav-item d-flex justify-content-between align-items-center w-100">
                 <!-- Izquierda: botón pantalla completa -->
                 <div>
@@ -72,7 +78,7 @@
             <span class="brand-text font-weight-light">Barbería</span>
         </a>
         <div class="sidebar">
-            <nav class="mt-2">
+            <nav>
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">
                     <li class="nav-item">
                         <a href="{{ route('citas.calendario') }}" class="nav-link">
@@ -108,7 +114,7 @@
 
     <!-- Content Wrapper -->
     <div class="content-wrapper">
-        <section class="content p-3">
+        <section class="content container-fluid p-3">
             @yield('content')
         </section>
     </div>
@@ -152,6 +158,8 @@
         }
     });
 </script>
+<!-- Para que el sidebar se cierre en móviles -->
+
 
 @vite(['resources/js/app.js'])
 @stack('scripts')
